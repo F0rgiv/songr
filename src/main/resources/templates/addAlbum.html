@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>songr</title>
+    <link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+<form action="/addAlbum" method="POST">
+    <fieldset>
+        <legend>Add Album</legend>
+        <label for="title">Title</label>
+        <input type="text" name="title">
+        <label for="artist">Artist</label>
+        <input type="text" name="artist">
+        <label for="songCount">Number of Songs</label>
+        <input type="text" name="songCount">
+        <label for="length">Album length in seconds</label>
+        <input type="text" name="length">
+        <label for="imgUrl">The ImgURL for the album</label>
+        <input type="text" name="imgUrl">
+        <input type="submit" value="Add album">
+    </fieldset>
+</form>
+</body>
+</html>
