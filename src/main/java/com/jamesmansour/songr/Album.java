@@ -64,7 +64,5 @@ public class Album {
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
     }
-
-
 }
 
