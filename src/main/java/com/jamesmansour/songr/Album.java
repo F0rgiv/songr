@@ -1,11 +1,21 @@
 package com.jamesmansour.songr;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Album {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     String title;
     String artist;
     int songCount;
     int length;
     String imgUrl;
+
+    public Album() {}
 
     public Album(String title, String artist, int songCount, int length, String imgUrl) {
         this.title = title;
@@ -54,5 +64,7 @@ public class Album {
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
     }
+
+
 }
 
