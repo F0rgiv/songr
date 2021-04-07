@@ -1,9 +1,7 @@
 package com.jamesmansour.songr;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Album {
@@ -15,6 +13,9 @@ public class Album {
     int songCount;
     int length;
     String imgUrl;
+
+    @OneToMany(mappedBy = "album")
+    private List<Song> songs;
 
     public Album() {}
 
