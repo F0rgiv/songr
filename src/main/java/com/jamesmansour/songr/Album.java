@@ -2,6 +2,7 @@ package com.jamesmansour.songr;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 public class Album {
@@ -17,7 +18,8 @@ public class Album {
     @OneToMany(mappedBy = "album")
     private List<Song> songs;
 
-    public Album() {}
+    public Album() {
+    }
 
     public Album(String title, String artist, int songCount, int length, String imgUrl) {
         this.title = title;
@@ -25,6 +27,19 @@ public class Album {
         this.songCount = songCount;
         this.length = length;
         this.imgUrl = imgUrl;
+    }
+
+    @Override
+    public String toString() {
+        return "Album{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", artist='" + artist + '\'' +
+                ", songCount=" + songCount +
+                ", length=" + length +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", songs=" + (songs.stream().map(Song::getTitle).collect(Collectors.toList())) +
+                '}';
     }
 
     public String getTitle() {

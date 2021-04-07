@@ -25,6 +25,17 @@ public class Song {
         this.album = album;
     }
 
+    @Override
+    public String toString() {
+        return "Song{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", length=" + length +
+                ", trackNumber=" + trackNumber +
+                ", album=" + album.getTitle() +
+                '}';
+    }
+
     public String getTitle() {
         return title;
     }
