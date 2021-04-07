@@ -15,11 +15,16 @@
 <a href="/addAlbum">Add an Album</a>
 <ul>
     <li th:each="album : ${albums}">
+        <div>
         <h3 th:text="${album.title}">title</h3>
         <p th:text="${album.artist}">artist</p>
         <p th:text="${album.songCount}">songCount</p>
         <p th:text="${album.length}">length</p>
         <img th:src="${album.imgUrl}" src="${album.imgUrl}">
+        </div>
+        <div>
+            <a th:href="'/album/' + ${album.id}">View details</a>
+        </div>
     </li>
 </ul>
 </body>

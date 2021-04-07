@@ -1,5 +1,7 @@
 package com.jamesmansour.songr;
 
+import com.jamesmansour.songr.models.Song;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -80,6 +82,10 @@ public class Album {
 
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
+    }
+
+    public long getId() {
+        return id;
     }
 }
 

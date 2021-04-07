@@ -1,5 +1,7 @@
-package com.jamesmansour.songr;
+package com.jamesmansour.songr.controllers;
 
+import com.jamesmansour.songr.Album;
+import com.jamesmansour.songr.repositories.AlbumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,4 +1,6 @@
-package com.jamesmansour.songr;
+package com.jamesmansour.songr.models;
+
+import com.jamesmansour.songr.Album;
 
 import javax.persistence.*;
 
