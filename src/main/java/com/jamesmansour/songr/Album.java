@@ -1,6 +1,7 @@
 package com.jamesmansour.songr;
 
 import com.jamesmansour.songr.models.Song;
+import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,10 +15,11 @@ public class Album {
     String title;
     String artist;
     int songCount;
+//    @Formula(value = "SELECT SUM(length) FROM song WHERE album_id = id")
     int length;
     String imgUrl;
 
-    @OneToMany(mappedBy = "album")
+    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Song> songs;
 
     public Album() {
@@ -82,6 +84,10 @@ public class Album {
 
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
+    }
+
+    public List<Song> getSongs() {
+        return songs;
     }
 
     public long getId() {

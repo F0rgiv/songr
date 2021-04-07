@@ -7,5 +7,33 @@
     <link rel="stylesheet" href="css/layout.css">
 </head>
 <body>
+<header th:replace="fragments/header.html :: header"></header>
+
+<h1>Album</h1>
+    <div>
+        <h3 th:text="${album.title}">title</h3>
+        <p th:text="${album.artist}">artist</p>
+        <p th:text="${album.songs.size()}">songCount</p>
+        <p th:text="${album.length}">length</p>
+        <img th:src="${album.imgUrl}" src="${album.imgUrl}">
+    </div>
+    <un>
+        <li th:each="song : ${album.songs}">
+            <p th:text="${song.title}"></p>
+            <p th:text="${song.length}"></p>
+            <p th:text="${song.trackNumber}"></p>
+            <p th:text="${song.album.title}"></p>
+        </li>
+    </un>
+    <form action="/addSong" method="POST">
+        <legend>Add Song</legend>
+        <label for="title">Title</label>
+        <input type="text" name="title">
+        <label for="length">Song Length in Seconds</label>
+        <input type="number" name="length">
+        <input id="trackNumber" name="trackNumber" type="hidden" th:value="${album.getSongs().size()} + 1">
+        <input id="album_id" name="album_id" type="hidden" th:value="${album.id}">
+        <input type="submit" value="Add Song">
+    </form>
 </body>
 </html>

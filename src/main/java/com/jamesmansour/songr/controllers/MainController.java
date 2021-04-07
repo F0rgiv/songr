@@ -27,5 +27,4 @@ public class MainController {
         return "landing.html";
     }
 
-
 }

@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
+
+import java.util.Optional;
 
 @Controller
 public class AlbumController {
@@ -21,6 +24,14 @@ public class AlbumController {
     public String getAlbums(Model m) {
         m.addAttribute("albums", albumRepository.findAll());
         return "albums.html";
+    }
+
+    @GetMapping("/album/{id}")
+    public String getAlbum(Model m, @PathVariable long id) {
+        Optional<Album> album = albumRepository.findById(id);
+        if (album.isEmpty()) return "albums.html";
+        m.addAttribute("album", album.get());
+        return "albumDetail.html";
     }
 
     @GetMapping("/addAlbum")
