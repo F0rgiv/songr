@@ -1,4 +1,4 @@
-package com.jamesmansour.songr;
+package com.jamesmansour.songr.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +26,5 @@ public class MainController {
     public String Landing() {
         return "landing.html";
     }
-
 
 }

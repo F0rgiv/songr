@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>landing</title>
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/layout.css">
 </head>
 <body>
-    <h1>Welcome to Songr!</h1>
-    <p> We are a cool app where you van create fun playlists and such!</p>
+<header th:replace="fragments/header.html :: header"> </header>
+<h1>Welcome to Songr!</h1>
+<p> We are a cool app where you van create fun playlists and such!</p>
 </body>
 </html>

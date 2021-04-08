@@ -12,3 +12,30 @@ form {
     align-items: center;
     grid-template-columns: 100px auto;
 }
+
+header {
+width: auto;
+    background-color: #181818;
+    min-height: 30px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 100px auto 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+header > * {
+    padding: 15px;
+    color: whitesmoke;
+}
+
+form {
+    padding: 10px
+}
+
+li {
+    background-color: whitesmoke;
+    margin-top: 10px;
+    padding: 5px;
+}

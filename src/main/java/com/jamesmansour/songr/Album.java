@@ -1,9 +1,11 @@
 package com.jamesmansour.songr;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.jamesmansour.songr.models.Song;
+import org.hibernate.annotations.Formula;
+
+import javax.persistence.*;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 public class Album {
@@ -13,10 +15,15 @@ public class Album {
     String title;
     String artist;
     int songCount;
+//    @Formula(value = "SELECT SUM(length) FROM song WHERE album_id = id")'0.
     int length;
     String imgUrl;
 
-    public Album() {}
+    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Song> songs;
+
+    public Album() {
+    }
 
     public Album(String title, String artist, int songCount, int length, String imgUrl) {
         this.title = title;
@@ -24,6 +31,19 @@ public class Album {
         this.songCount = songCount;
         this.length = length;
         this.imgUrl = imgUrl;
+    }
+
+    @Override
+    public String toString() {
+        return "Album{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", artist='" + artist + '\'' +
+                ", songCount=" + songCount +
+                ", length=" + length +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", songs=" + (songs.stream().map(Song::getTitle).collect(Collectors.toList())) +
+                '}';
     }
 
     public String getTitle() {
@@ -64,6 +84,14 @@ public class Album {
 
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
+    }
+
+    public List<Song> getSongs() {
+        return songs;
+    }
+
+    public long getId() {
+        return id;
     }
 }
 

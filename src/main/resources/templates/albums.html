@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Albums</title>
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/layout.css">
 </head>
 <body>
-<h1> Albums :)</h1>
+<header th:replace="fragments/header.html :: header"></header>
+
+<h1>Albums</h1>
 
 <h2>Add and Album here</h2>
-<table>
-    <a href="/addAlbum">Add an Album</a>
-    <tr>
-        <th>title</th>
-        <th>artist</th>
-        <th>songCount</th>
-        <th>length</th>
-        <th>imgUrl</th>
-    </tr>
-    <tr th:each="album : ${albums}">
-        <td th:text="${album.title}">title</td>
-        <td th:text="${album.artist}">artist</td>
-        <td th:text="${album.songCount}">songCount</td>
-        <td th:text="${album.length}">length</td>
+<a href="/addAlbum">Add an Album</a>
+<ul>
+    <li th:each="album : ${albums}">
+        <div>
+        <h3 th:text="${album.title}">title</h3>
+        <p th:text="${album.artist}">artist</p>
+        <p th:text="${album.songCount}">songCount</p>
+        <p th:text="${album.length}">length</p>
         <img th:src="${album.imgUrl}" src="${album.imgUrl}">
-    </tr>
-</table>
+        </div>
+        <div>
+            <a th:href="'/album/' + ${album.id}">View details</a>
+        </div>
+    </li>
+</ul>
 </body>
 </html>
