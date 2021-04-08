@@ -15,7 +15,7 @@ public class Album {
     String title;
     String artist;
     int songCount;
-//    @Formula(value = "SELECT SUM(length) FROM song WHERE album_id = id")
+//    @Formula(value = "SELECT SUM(length) FROM song WHERE album_id = id")'0.
     int length;
     String imgUrl;
 
